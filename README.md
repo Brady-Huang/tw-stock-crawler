@@ -12,6 +12,7 @@
       個股收盤資訊-->產業別漲幅前3名的股票;
 ```
 ## 第一部分
+```
 step1: 先爬取個股資訊包含個股代號及產業別，存成一個股票代號的list及一個dictionary存產業別對應的股票代號，以供接下來流程使用．
 step2: 將股票代號存成的list去對應每個股票的收盤資訊，總共有900多個個股收盤資訊，一一爬下．
 step3: 在爬的時候，如果爬取速度過於頻繁，爬取網頁的伺服器端會暫時擋下爬取的IP．
@@ -22,12 +23,14 @@ step7: 將連續爬取失敗3次的股票代號先用List存起來，等到全�
 step8: 將爬到的個股收盤資訊存成listed.json，用剛剛做好的產業別對應的股票代號（dictionary)，去做mapping，然後將產業別個股資訊漲幅做排序，挑出前三名後，將其資訊存成json檔
 
 ＃ corner case的情況: step1所獲得的股票代號list，其中有極少股票會出現未開盤的狀況，因此在爬取個股股票時，未開盤股票無法獲得資訊，則另外處理，將其存成 ex: {"6172": "很抱歉，沒有符合條件的資料!"}來做呈現．
-
+```
 ## 數據結果
 會得到個股收盤資訊，存成listed.json
 會得到產業別漲幅前三名的個股資訊 {category}_top3.json
 
 ## 第二部分
+Apache Airflow是一種可以監控cron job的工具，用Docker打包Apache Airflow，來做部署
+
 ## Run the Service
 You can start the airflow service with the following command.
 ```
