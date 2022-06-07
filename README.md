@@ -25,9 +25,10 @@ step8: 將爬到的個股收盤資訊存成listed.json，用剛剛做好的產�
 ＃ corner case的情況: step1所獲得的股票代號list，其中有極少股票會出現未開盤的狀況，因此在爬取個股股票時，未開盤股票無法獲得資訊，則另外處理，將其存成 ex: {"6172": "很抱歉，沒有符合條件的資料!"}來做呈現．
 ```
 ## 數據結果
+```
 會得到個股收盤資訊，存成listed.json
 會得到產業別漲幅前三名的個股資訊 {category}_top3.json
-
+```
 ## 第二部分
 Apache Airflow是一種可以監控cron job的工具，用Docker打包Apache Airflow，來做部署
 
