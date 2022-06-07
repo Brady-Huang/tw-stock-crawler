@@ -91,6 +91,7 @@ You can start the airflow service with the following command.
 git clone https://github.com/Brady-Huang/tw-stock-crawler.git
 cd tw-stock-crawler
 docker-compose -f docker-compose-LocalExecutor.yml up -d
+RUN http://localhost:7000/
 ```
 
 ## Stop the Service
@@ -105,8 +106,9 @@ docker exec -it {docker_container} /bin/bash
 ```
 
 ## Install Python Custome Package For Airflow Service
+```
 Add the python package your want to install in the `requirements.txt`.
-
+```
 
 
 ## 測試文件位置
@@ -149,5 +151,5 @@ b. listed.json存取方式為key-value pair，key為個股代號以及column，�
 
 ```
 a. 測試是否能讀取到{category}_top3.json，則代表有成功存取
-b. 測試各產業前三名的json檔存取的key是否有3個  (key為個股，value為個股收盤資訊)
+b. 測試各產業前三名的json檔存取的key是否有3個 (key為個股，value為個股收盤資訊)
 ```
