@@ -64,11 +64,11 @@ Apache Airflow是一種可以監控cron job的工具，用Docker打包Apache Air
   graph TD;
       network_check-->get_stock_info;
       get_stock_info-->get_stock_data;
-      get_stock_data-->get_top_3_data_by_each_category;
-      
+      get_stock_data-->get_top_3_data_by_each_category;      
 ```
+
 ## 解釋流程
-```
+
 ```
 network_check: 檢查網路狀況
 ```
