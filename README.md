@@ -83,9 +83,9 @@ get_top_3_data_by_each_category: 使用get_stock_info裡的產業別對應的股
                                  以及讀取listed.json來做mapping，生成{category}_top3.json
 ```
 
-```
+
 ## Run the Service
-```
+
 You can start the airflow service with the following command.
 ```
 git clone https://github.com/Brady-Huang/tw-stock-crawler.git
