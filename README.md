@@ -69,7 +69,9 @@ Apache Airflow是一種可以監控cron job的工具，用Docker打包Apache Air
 ```
 ## 解釋流程
 ```
+```
 network_check: 檢查網路狀況
+```
 ```
 get_stock_info: 抓取上市股票代號及類別，return 股票代號list 及 產業別對應的股票代號 Dictionary
 ```
