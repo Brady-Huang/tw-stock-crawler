@@ -1,6 +1,8 @@
-# Taiwan Stock Crawler
+# Taiwan Stock Crawler (每個交易日抓取上市股票以及收盤價資訊)
 
-## 撰寫一個 Python 專案，每個交易日抓取上市股票以及收盤價資訊
+
+## 流程如下:
+
 ```mermaid
   graph TD;
       上市股票-->股票代號;
