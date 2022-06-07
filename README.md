@@ -46,22 +46,48 @@ step8: 將爬到的個股收盤資訊存成listed.json，用剛剛做好的產�
        然後將產業別個股資訊漲幅做排序，挑出前三名後，將其資訊存成json檔
 ```
 ```
-＃ corner case: step1所獲得的股票代號list，其中有極少股票會出現未開盤的狀況，因此在爬取個股股票時，
-            未開盤股票無法獲得資訊，則另外處理，將其存成 ex: {"6172": "很抱歉，沒有符合條件的資料!"}來做呈現
+corner case: step1所獲得的股票代號list，其中有極少股票會出現未開盤的狀況，因此在爬取個股股票時，
+            未開盤股票無法獲得資訊，則另外處理，將其存成 ex: {"6172": "很抱歉，沒有符合條件的資料!"}
 ```
 
 ## 數據結果
 ```
 會得到個股收盤資訊，存成listed.json
 會得到產業別漲幅前三名的個股資訊 {category}_top3.json
+這些數據會存在容器及local裡的data folder
 ```
 
 ## 第二部分
 Apache Airflow是一種可以監控cron job的工具，用Docker打包Apache Airflow，來做部署
+## 設計Data Flow 如下
+```mermaid
+  graph TD;
+      network_check-->get_stock_info;
+      get_stock_info-->get_stock_data;
+      get_stock_data-->get_top_3_data_by_each_category;
+      
+```
+## 解釋流程
+```
+network_check: 檢查網路狀況
+```
+get_stock_info: 抓取上市股票代號及類別，return 股票代號list 及 產業別對應的股票代號 Dictionary
+```
+```
+get_stock_data: 使用get_stock_info的股票代號list來mapping個股資訊，進行爬取，存成listed.json
+```
+```
+get_top_3_data_by_each_category: 使用get_stock_info裡的產業別對應的股票代號 Dictionary
+                                 以及讀取listed.json來做mapping，生成{category}_top3.json
+```
 
+```
 ## Run the Service
+```
 You can start the airflow service with the following command.
 ```
+git clone https://github.com/Brady-Huang/tw-stock-crawler.git
+cd tw-stock-crawler
 docker-compose -f docker-compose-LocalExecutor.yml up -d
 ```
 
