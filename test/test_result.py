@@ -1,4 +1,4 @@
-from util.tw_stock import stock_crawler
+from dags.util.tw_stock import stock_crawler
 import json
 
 sc = stock_crawler()
