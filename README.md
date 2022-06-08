@@ -114,7 +114,7 @@ Add the python package your want to install in the `requirements.txt`.
 ## 測試文件位置
 
 ```
-dags/test_result.py
+test/test_result.py
 ```
 
 ## 測試功能
